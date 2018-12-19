@@ -52,6 +52,19 @@ for(f in fileList) {
   dataFrame <- existsDiff(dataGoodAnswer$total_links, dataNotGoodAnswer$total_links, "Good", "Not Good", "Links", commLabel)
   data <- rbind(data, dataFrame)
  
+  dataFrame <- existsDiff(dataGoodAnswer$doicount, dataNotGoodAnswer$doicount, "Good", "Not Good", "doi.org ref", commLabel)
+  data <- rbind(data, dataFrame)
+  
+  dataFrame <- existsDiff(dataGoodAnswer$wikipediacount, dataNotGoodAnswer$wikipediacount, "Good", "Not Good", "Wikipedia ref", commLabel)
+  data <- rbind(data, dataFrame)
+
+  dataFrame <- existsDiff(dataGoodAnswer$selfreferencecount, dataNotGoodAnswer$selfreferencecount, "Good", "Not Good", "Community self-ref", commLabel)
+  data <- rbind(data, dataFrame)  
+  
+  dataFrame <- existsDiff(dataGoodAnswer$naturecount, dataNotGoodAnswer$naturecount, "Good", "Not Good", "Nature ref", commLabel)
+  data <- rbind(data, dataFrame)  
+
+  #,
 }
 
 print(data)
