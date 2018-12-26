@@ -1,5 +1,5 @@
 library("xtable")
-source("../Functions.R")
+source("../../Functions.R")
 this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
@@ -8,7 +8,7 @@ trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 
 data = NULL
 
-fileList = c("biology-answers-ari-len.csv", "chemistry-answers-ari-len.csv")
+fileList = c("biology-answers-readability.csv", "chemistry-answers-readability.csv")
 
 for(f in fileList) {
   myData = read.csv(file = f, sep = ";", header = TRUE, dec = ".")
