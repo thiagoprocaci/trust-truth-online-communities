@@ -90,9 +90,11 @@ existsDiff <- function(x, y, xTitle, yTitle, context, commnity) {
   } else {
     result = "inconclusivo"
   }
+
   dataFrame <- data.frame("Method" =  method, 
                           "context" = context, "community" = commnity,
                            "d1" = xTitle, "d2" = yTitle, "p" = pvPrint, "result" = result, "valid" = validLabel)
+  
   print(dataFrame)
   
 }

@@ -1,5 +1,9 @@
 library("xtable")
-source("Functions.R")
+source("../Functions.R")
+this.dir <- dirname(parent.frame(2)$ofile)
+setwd(this.dir)
+
+
 # returns string w/o leading or trailing whitespace
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 
