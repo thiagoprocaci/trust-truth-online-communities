@@ -23,7 +23,9 @@ for(f in fileList) {
     data = dataFrame
   } else {
     data <- rbind(data, dataFrame) 
-  }  
+  }
+  dataFrame <- existsDiff(dataGoodAnswer$retention, dataNotGoodAnswer$retention, "Good", "Not Good", "Retention", commLabel)
+  data <- rbind(data, dataFrame) 
 }
 
 print(data)

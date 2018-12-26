@@ -2,10 +2,11 @@ with parametros as (
     select CAST('biology.stackexchange.com' as text) as comm_name
     
 )
-select A.id_answer, A.good, A.community, sum(A.cont) as reviews from (
+select A.id_answer, A.good, A.community, sum(A.cont) as reviews,  A.retention from (
 select pt.id as id_answer,  
-       p.id as id_history,
-       COALESCE(p.id, 0) as cont,
+	   p.id as id_history,
+	   EXTRACT(EPOCH FROM (pt.last_activity_date - pt.creation_date)) as retention,
+	   COALESCE(p.id, 0) as cont,
      case
         when pt.score > 0 then 'yes'
         else 'no'
@@ -18,5 +19,5 @@ where 1=1
 and pt.post_type = 2
 group by pt.id, p.id
 
-) A group by A.id_answer, A.good, A.community
-order by 4
+) A group by A.id_answer, A.good, A.community,  A.retention
+order by 5 desc
